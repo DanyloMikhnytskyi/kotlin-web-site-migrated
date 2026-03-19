@@ -1,8 +1,31 @@
 import { reactRouter } from "@react-router/dev/vite";
-import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import commonjs from "vite-plugin-commonjs";
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  resolve: {
+    alias: {
+      // Force resolve to the compiled JS file since `module: "lib/index.ts"` in package.json is broken
+      "@rescui/card": "@rescui/card/lib/index.js",
+    },
+  },
+  plugins: [
+    reactRouter(),
+    tsconfigPaths(),
+    commonjs({
+      filter(id) {
+        if (
+          id.includes("@jetbrains/kotlin-web-site-ui") ||
+          id.includes("@rescui")
+        ) {
+          return true;
+        }
+        return false;
+      },
+    }),
+  ],
+  ssr: {
+    noExternal: ["@rescui/*", "@jetbrains/*"],
+  },
 });

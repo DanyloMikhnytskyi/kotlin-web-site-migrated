@@ -6,9 +6,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+// @ts-expect-error
+import GlobalHeader from "@jetbrains/kotlin-web-site-ui/dist/header.js";
+import "@jetbrains/kotlin-web-site-ui/dist/header.css";
+// @ts-expect-error
+import GlobalFooter from "@jetbrains/kotlin-web-site-ui/dist/footer.js";
+import "@jetbrains/kotlin-web-site-ui/dist/footer.css";
+import { ThemeProvider } from "@rescui/ui-contexts";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import "./css/styles-v2.scss";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,6 +27,21 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2",
+    as: "font",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2",
+    as: "font",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2",
+    as: "font",
   },
 ];
 
@@ -42,7 +64,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <GlobalHeader />
+      <Outlet />
+      <ThemeProvider theme="dark">
+        <GlobalFooter />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
