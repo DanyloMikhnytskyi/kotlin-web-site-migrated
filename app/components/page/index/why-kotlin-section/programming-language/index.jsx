@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@rescui/button";
 import { useTextStyles } from "@rescui/typography";
 import { TabList, Tab, TabSeparator } from "@rescui/tab-list";
@@ -13,11 +13,13 @@ import "./index.scss";
 
 hljs.registerLanguage("kotlin", kotlin);
 
-const initialIndex = Math.floor(Math.random() * tabs.length);
-
 export function ProgrammingLanguage() {
   const textCn = useTextStyles();
-  const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveIndex(Math.floor(Math.random() * tabs.length));
+  }, []);
 
   const highlighted = hljs.highlight("kotlin", tabs[activeIndex].code).value;
 
