@@ -13,6 +13,7 @@ export default defineConfig({
   plugins: [
     reactRouter(),
     tsconfigPaths(),
+
     commonjs({
       filter(id) {
         if (

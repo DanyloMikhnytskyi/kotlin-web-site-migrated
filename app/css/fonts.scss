@@ -1,23 +1,22 @@
-@import "config/_font";
+@use "config/font" as *;
+@use "fonts/jetbrains-mono" as *;
 
 // Sans Serif
-@import url('//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400italic,700italic,400,700');
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400italic,700italic,400,700");
 
 // Mono
-@import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono');
+@import url("//fonts.googleapis.com/css?family=Droid+Sans+Mono");
 
 // Serif
 @font-face {
-    font-family: 'GraublauSans Bold';
-    src: url('/assets/fonts/GraublauSans-Bold-webfont.woff');
+  font-family: "GraublauSans Bold";
+  src: url("/fonts/GraublauSans-Bold-webfont.woff");
 }
 @font-face {
-    font-family: 'GraublauSlab Regular';
-    src: url('/assets/fonts/GraublauSlab-Regular-webfont.woff');
+  font-family: "GraublauSlab Regular";
+  src: url("/fonts/GraublauSlab-Regular-webfont.woff");
 }
 @font-face {
-    font-family: 'GraublauSlab Semibold';
-    src: url('/assets/fonts/GraublauSlab-Semibold.woff');
+  font-family: "GraublauSlab Semibold";
+  src: url("/fonts/GraublauSlab-Semibold.woff");
 }
-
-@import "fonts/jetbrains-mono";
