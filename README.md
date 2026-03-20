@@ -1,87 +1,61 @@
-# Welcome to React Router!
+# Kotlin Website Homepage - React Router 7 Migration
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This repository contains a migrated version of a legacy React project (a stripped-down version of the https://kotlinlang.org homepage) to **React Router 7 Framework Mode** with **Server-Side Rendering (SSR)**. This was completed as part of a test assignment.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Overview & Achievements
 
-## Features
+- **React Router 7 Framework Mode**: Upgraded from the legacy setup to a modern architecture utilizing React Router 7 Framework Mode.
+- **Server-Side Rendering (SSR)**: The page is fully rendered on the server, ensuring quick initial load times and comprehensive SEO support, and becomes fully interactive after client-side hydration.
+- **Pixel-Perfect UI**: The original visual appearance of the Kotlin homepage has been carefully preserved.
+- **Interactive Functionality**: All original interactive elements, such as tab switching, remain fully functional.
+- **Component Library**: Maintained the continued use of `@rescui` components to ensure maintainability and structural consistency.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+_Note: Since the source project contained only the homepage, navigation links are non-functional by design. This is expected behavior._
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js (v18 or newer recommended)
+- npm
+
 ### Installation
 
-Install the dependencies:
+Clone the repository and install the dependencies. **Note:** Because the project uses React 19, which introduces peer dependency conflicts with the older `@rescui` and JetBrains UI libraries, please use the `--legacy-peer-deps` flag:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### Development
 
-Start the development server with HMR:
+Start the development server with Hot Module Replacement (HMR):
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The application will be available at `http://localhost:5173`.
 
-## Building for Production
+### Production Build
 
-Create a production build:
+To test the Server-Side Rendering capabilities, create a production build and run the server:
 
 ```bash
 npm run build
+npm start
 ```
 
-## Deployment
+The application will be served from the built server files.
 
-### Docker Deployment
+## Project Structure
 
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+- `app/` - Contains the React Router 7 application code.
+  - `components/` - Reusable UI components organized by sections of the page.
+  - `routes/` - Route definitions for Framework mode.
+  - `css/` - Global styles, SCSS configurations, and localized styling variables.
+  - `root.tsx` - The root layout and document shell for the SSR application.
+  - `routes.ts` - Framework routing configuration.
+- `public/` - Static assets including fonts and images.
+- `react-router.config.ts` - React Router configuration.
+- `vite.config.ts` - Vite bundler configuration.
