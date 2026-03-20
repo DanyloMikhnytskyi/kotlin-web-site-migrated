@@ -47,7 +47,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="page__index-new page_restyled_v2">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,13 +65,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <>
+    <div className="global-layout">
       <GlobalHeader />
-      <Outlet />
+      <div className="g-layout global-content">
+        <Outlet />
+      </div>
       <ThemeProvider theme="dark">
         <GlobalFooter />
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 
