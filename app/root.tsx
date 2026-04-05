@@ -67,10 +67,10 @@ export default function App() {
   return (
     <div className="global-layout">
       <GlobalHeader />
-      <div className="g-layout global-content">
-        <Outlet />
-      </div>
       <ThemeProvider theme="dark">
+        <div className="g-layout global-content">
+          <Outlet />
+        </div>
         <GlobalFooter />
       </ThemeProvider>
     </div>
