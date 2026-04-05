@@ -18,15 +18,33 @@ import type { Route } from "./+types/root";
 import "./css/styles-v2.scss";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    rel: "icon",
+    type: "image/svg+xml",
+    href: "/favicon.svg",
   },
   {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    rel: "alternate icon",
+    href: "/favicon.ico",
+  },
+  {
+    rel: "apple-touch-icon",
+    href: "/apple-touch-icon.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    sizes: "72x72",
+    href: "/apple-touch-icon-72x72.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    sizes: "114x114",
+    href: "/apple-touch-icon-114x114.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    sizes: "144x144",
+    href: "/apple-touch-icon-144x144.png",
   },
   {
     rel: "preload",
@@ -51,6 +69,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Kotlin Programming Language" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kotlinlang.org/" />
+        <meta
+          property="og:image"
+          content="https://kotlinlang.org/assets/images/open-graph/general.png"
+        />
+        <meta property="og:description" content="" />
+        <meta property="og:site_name" content="Kotlin" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@kotlin" />
+        <meta name="twitter:title" content="Kotlin Programming Language" />
+        <meta name="twitter:description" content="" />
+        <meta
+          name="twitter:image:src"
+          content="https://kotlinlang.org/assets/images/twitter/general.png"
+        />
         <Meta />
         <Links />
       </head>
