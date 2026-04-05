@@ -8,7 +8,6 @@ export function useIsMobile(breakpoint = 768) {
       setIsMobile(window.innerWidth < breakpoint);
     };
 
-    // Initial check on mount
     checkIsMobile();
 
     window.addEventListener("resize", checkIsMobile);
