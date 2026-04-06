@@ -69,19 +69,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Kotlin Programming Language" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://kotlinlang.org/" />
-        <meta
-          property="og:image"
-          content="https://kotlinlang.org/assets/images/open-graph/general.png"
-        />
-        <meta property="og:description" content="" />
         <meta property="og:site_name" content="Kotlin" />
-        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@kotlin" />
-        <meta name="twitter:title" content="Kotlin Programming Language" />
-        <meta name="twitter:description" content="" />
         <meta
           name="twitter:image:src"
           content="https://kotlinlang.org/assets/images/twitter/general.png"

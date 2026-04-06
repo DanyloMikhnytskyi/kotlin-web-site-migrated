@@ -16,10 +16,7 @@ export default defineConfig({
 
     commonjs({
       filter(id) {
-        if (
-          id.includes("@jetbrains/kotlin-web-site-ui") ||
-          id.includes("@rescui")
-        ) {
+        if (id.includes("@jetbrains/kotlin-web-site-ui")) {
           return true;
         }
         return false;
